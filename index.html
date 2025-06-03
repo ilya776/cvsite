@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illia Bilous | DevOps Engineer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Devicon for Tech Logos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top" role="navigation" aria-label="Main navigation">
+        <div id="scroll-progress" aria-hidden="true"></div>
+        <div class="container">
+            <a class="navbar-brand" href="#">Illia Bilous</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" role="menubar">
+                    <li class="nav-item" role="none"><a class="nav-link" href="#home" role="menuitem" aria-label="Home section">Home</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#about" role="menuitem" aria-label="About section">About</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#skills" role="menuitem" aria-label="Skills section">Skills</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#projects" role="menuitem" aria-label="Projects section">Projects</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#resume" role="menuitem" aria-label="Resume section">Resume</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#contact" role="menuitem" aria-label="Contact section">Contact</a></li>
+                    <li class="nav-item" role="none">
+                        <button id="theme-toggle" class="btn btn-sm" aria-label="Toggle dark/light theme" role="menuitem">
+                            <i class="bi bi-moon-fill" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section" role="region" aria-labelledby="hero-title" tabindex="-1">
+        <div id="particles-js" class="particles-container" aria-hidden="true"></div>
+        <div class="container h-100 position-relative">
+            <div class="row h-100 align-items-center">
+                <div id="main-content" class="col-lg-8 mx-auto text-center">
+                    <h1 id="hero-title" class="hero-title animate__animated animate__fadeInDown">Illia Bilous</h1>
+                    <h2 class="mb-4 hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">DevOps Engineer</h2>
+                    <p class="lead mb-5 hero-text animate__animated animate__fadeInUp animate__delay-2s">Building reliable infrastructure and streamlining development workflows</p>
+                    <a href="#about" class="btn btn-primary btn-lg scroll-btn animate__animated animate__fadeInUp animate__delay-3s">
+                        Learn More <i class="bi bi-arrow-down" aria-hidden="true"></i>
+                    </a>
+                    <!-- REMOVED: Scroll down indicator as per requirements -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About Me</h2>
+                    <hr class="divider">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="profile-img-container">
+                        <img src="assets/profile.jpg" alt="Illia Bilous" class="img-fluid rounded-circle profile-img">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <h3>Illia Bilous</h3>
+                    <h4 class="text-white mb-3">DevOps Engineer</h4>
+                    <div class="about-text-container" id="aboutTextContainer">
+                        <div class="about-text-wrapper">
+                            <p class="about-text">
+                                I'm a DevOps Engineer with over two years of hands-on experience designing, building, and maintaining cloud-native infrastructure and automation pipelines. My passion lies in creating reliable, scalable systems that empower development teams to deliver high-quality software rapidly and consistently. I thrive on solving complex problems, streamlining workflows, and finding creative ways to bridge the gap between development and operations.
+                            </p>
+                        </div>
+                        <div class="about-text-wrapper">
+                            <p class="about-text">
+                                Over the course of my career, I have:
+                            </p>
+                        </div>
+                        <ul class="about-text">
+                            <div class="about-text-wrapper">
+                                <li>Engineered robust AWS and GCP environments: I've provisioned and managed EC2 instances, S3 buckets, RDS databases, and other core services to ensure high availability and cost-efficiency.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Embraced Infrastructure as Code with Terraform: I've authored modular Terraform configurations to automate the provisioning of networks, compute resources, and storage, enabling repeatable deployments across staging and production.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Led containerization efforts using Docker and Kubernetes: I've built Docker images, designed and deployed Kubernetes clusters (including Pods, Deployments, Services, ConfigMaps, Secrets, and Ingress controllers), and used Helm charts to package and distribute complex applications. By configuring Horizontal Pod Autoscalers (HPA) and resource requests/limits, I ensured that workloads could scale dynamically in response to demand.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Built and maintained CI/CD pipelines: I've implemented end-to-end pipelines with Jenkins and GitLab CI, integrating unit tests, linting, security scans, and automated deployments. These pipelines have reduced manual steps, minimized errors, and accelerated release cycles.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Monitored systems with Prometheus and Grafana: I've set up Prometheus exporters, defined custom metrics, and created Grafana dashboards to visualize system health, application performance, and resource utilization. Proactive alerts and detailed instrumentation have helped teams detect and resolve issues before they impact users.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Managed databases and networking: I've administered MySQL and PostgreSQL instances—tuning queries, optimizing indexes, and performing backups to ensure data integrity. I'm also well-versed in Linux networking fundamentals, having configured VPCs, subnets, security groups, and load balancers to maintain secure, performant architectures.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Automated tasks with Python and Bash: I've written scripts to automate routine maintenance, configuration drift checks, log aggregation, and other operational tasks—freeing up time for more strategic work.</li>
+                            </div>
+                        </ul>
+                        <div class="about-text-wrapper">
+                            <p class="about-text">
+                                I thrive in collaborative environments where cross-functional teams come together to build and operate complex systems. When I'm not optimizing infrastructure, I enjoy exploring new DevOps tools, contributing to open-source projects, and sharing knowledge with the community. My ultimate goal is to drive continuous improvement in software delivery and operational excellence, ensuring that every service I work on meets the highest standards of reliability, security, and performance.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.linkedin.com/in/illia-bilous-32548a212" target="_blank" class="me-3"><i class="bi bi-linkedin fs-3"></i></a>
+                        <a href="https://github.com/ilya776" target="_blank" class="me-3"><i class="bi bi-github fs-3"></i></a>
+                        <a href="mailto:illiaa.bilous@gmail.com" class="me-3"><i class="bi bi-envelope fs-3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Skills</h2>
+                    <hr class="divider">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb-4">
+                    <div class="skill-categories text-center">
+                        <button class="btn btn-outline-primary m-2 filter-btn active" data-filter="all">All</button>
+                        <button class="btn btn-outline-primary m-2 filter-btn" data-filter="cicd">CI/CD</button>
+                        <button class="btn btn-outline-primary m-2 filter-btn" data-filter="cloud">Cloud</button>
+                        <button class="btn btn-outline-primary m-2 filter-btn" data-filter="container">Containers</button>
+                        <button class="btn btn-outline-primary m-2 filter-btn" data-filter="monitoring">Monitoring</button>
+                        <button class="btn btn-outline-primary m-2 filter-btn" data-filter="database">Database</button>
+                        <button class="btn btn-outline-primary m-2 filter-btn" data-filter="os">OS</button>
+                        <button class="btn btn-outline-primary m-2 filter-btn" data-filter="scripting">Scripting</button>
+                        <button class="btn btn-outline-primary m-2 filter-btn" data-filter="iac">IaC</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row skill-cards">
+                <!-- CI/CD Skills -->
+                <div class="col-md-4 mb-4 skill-item" data-category="cicd">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-gitlab-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">GitLab CI</h4>
+                            <div class="skill-level" tabindex="0" aria-label="GitLab CI skill level: 95 percent">
+                                <div class="skill-percentage">95%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">GitLab CI: 95%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="cicd">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-jenkins-plain fs-1 mb-3" style="color: #D33833;"></i>
+                            <h4 class="card-title">Jenkins</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Jenkins skill level: 90 percent">
+                                <div class="skill-percentage">90%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Jenkins: 90%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="cicd">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-github-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">GitHub Actions</h4>
+                            <div class="skill-level" tabindex="0" aria-label="GitHub Actions skill level: 85 percent">
+                                <div class="skill-percentage">85%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">GitHub Actions: 85%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container Skills -->
+                <div class="col-md-4 mb-4 skill-item" data-category="container">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-docker-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Docker</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Docker skill level: 95 percent">
+                                <div class="skill-percentage">95%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Docker: 95%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="container">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-kubernetes-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Kubernetes</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Kubernetes skill level: 90 percent">
+                                <div class="skill-percentage">90%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Kubernetes: 90%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Skills -->
+                <div class="col-md-4 mb-4 skill-item" data-category="cloud">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-amazonwebservices-plain-wordmark colored fs-1 mb-3"></i>
+                            <h4 class="card-title">AWS</h4>
+                            <div class="skill-level" tabindex="0" aria-label="AWS skill level: 90 percent">
+                                <div class="skill-percentage">90%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">AWS: 90%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="cloud">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-azure-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Azure</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Azure skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Azure: 70%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monitoring Skills -->
+                <div class="col-md-4 mb-4 skill-item" data-category="monitoring">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-graph-up fs-1 mb-3" style="color: #E6522C;"></i>
+                            <h4 class="card-title">Prometheus</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Prometheus skill level: 85 percent">
+                                <div class="skill-percentage">85%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Prometheus: 85%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="monitoring">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-grafana-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Grafana</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Grafana skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Grafana: 70%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="monitoring">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-bar-chart-line fs-1 mb-3"></i>
+                            <h4 class="card-title">Loki</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Loki skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Loki: 70%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Skills -->
+                <div class="col-md-4 mb-4 skill-item" data-category="database">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-mysql-plain-wordmark colored fs-1 mb-3"></i>
+                            <h4 class="card-title">MySQL</h4>
+                            <div class="skill-level" tabindex="0" aria-label="MySQL skill level: 85 percent">
+                                <div class="skill-percentage">85%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">MySQL: 85%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="database">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-postgresql-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Postgres</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Postgres skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Postgres: 70%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="database">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-redis-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Redis</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Redis skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Redis: 70%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OS Skills -->
+                <div class="col-md-4 mb-4 skill-item" data-category="os">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-linux-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Linux</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Linux skill level: 95 percent">
+                                <div class="skill-percentage">95%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Linux: 95%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scripting Skills -->
+                <div class="col-md-4 mb-4 skill-item" data-category="scripting">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-bash-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Bash</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Bash skill level: 90 percent">
+                                <div class="skill-percentage">90%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Bash: 90%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="scripting">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-python-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Python</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Python skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Python: 70%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IaC Skills -->
+                <div class="col-md-4 mb-4 skill-item" data-category="iac">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-terraform-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Terraform</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Terraform skill level: 80 percent">
+                                <div class="skill-percentage">80%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Terraform: 80%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="iac">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-ansible-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Ansible</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Ansible skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Ansible: 70%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Projects</h2>
+                    <hr class="divider">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-lg-12 text-center">
+                    <div class="project-filters">
+                        <button class="btn btn-outline-primary m-2 project-filter active" data-filter="all">All</button>
+                        <button class="btn btn-outline-primary m-2 project-filter" data-filter="cicd">CI/CD</button>
+                        <button class="btn btn-outline-primary m-2 project-filter" data-filter="cloud">Cloud</button>
+                        <button class="btn btn-outline-primary m-2 project-filter" data-filter="monitoring">Monitoring</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row project-cards">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="cicd,cloud">
+                    <div class="card h-100 project-card">
+                        <img src="assets/project1.jpg" class="card-img-top" alt="CI/CD Pipeline Project">
+                        <div class="card-body">
+                            <h4 class="card-title">Automated CI/CD Pipeline</h4>
+                            <p class="card-text">Designed and implemented a fully automated CI/CD pipeline using GitLab CI for a microservices architecture, reducing deployment time by 70%.</p>
+                            <p class="tech-stack">
+                                <span class="badge bg-primary">GitLab CI</span>
+                                <span class="badge bg-primary">Docker</span>
+                                <span class="badge bg-primary">Kubernetes</span>
+                                <span class="badge bg-primary">AWS</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project1Modal">Details</a>
+                            <a href="https://github.com/" target="_blank" class="btn btn-outline-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="cloud,monitoring">
+                    <div class="card h-100 project-card">
+                        <img src="assets/project2.jpg" class="card-img-top" alt="Cloud Infrastructure Project">
+                        <div class="card-body">
+                            <h4 class="card-title">Cloud Infrastructure Automation</h4>
+                            <p class="card-text">Created a scalable cloud infrastructure on AWS using Infrastructure as Code principles with automated monitoring and alerting.</p>
+                            <p class="tech-stack">
+                                <span class="badge bg-primary">AWS</span>
+                                <span class="badge bg-primary">Terraform</span>
+                                <span class="badge bg-primary">Prometheus</span>
+                                <span class="badge bg-primary">Grafana</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project2Modal">Details</a>
+                            <a href="https://github.com/" target="_blank" class="btn btn-outline-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="cicd,monitoring">
+                    <div class="card h-100 project-card">
+                        <img src="assets/project3.jpg" class="card-img-top" alt="Monitoring System Project">
+                        <div class="card-body">
+                            <h4 class="card-title">Comprehensive Monitoring System</h4>
+                            <p class="card-text">Implemented a robust monitoring and alerting system using Prometheus and Grafana for a high-traffic e-commerce platform.</p>
+                            <p class="tech-stack">
+                                <span class="badge bg-primary">Prometheus</span>
+                                <span class="badge bg-primary">Grafana</span>
+                                <span class="badge bg-primary">Alertmanager</span>
+                                <span class="badge bg-primary">Kubernetes</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project3Modal">Details</a>
+                            <a href="https://github.com/" target="_blank" class="btn btn-outline-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div class="modal fade" id="project1Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Automated CI/CD Pipeline</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/project1.jpg" class="img-fluid mb-3" alt="CI/CD Pipeline Project">
+                    <h5>Project Overview</h5>
+                    <p>Designed and implemented a fully automated CI/CD pipeline using GitLab CI for a microservices architecture, reducing deployment time by 70% and enabling multiple daily deployments.</p>
+                    <h5>Technologies Used</h5>
+                    <p>
+                        <span class="badge bg-primary">GitLab CI</span>
+                        <span class="badge bg-primary">Docker</span>
+                        <span class="badge bg-primary">Kubernetes</span>
+                        <span class="badge bg-primary">Helm</span>
+                        <span class="badge bg-primary">AWS EKS</span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="https://github.com/" target="_blank" class="btn btn-primary">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="project2Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cloud Infrastructure Automation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/project2.jpg" class="img-fluid mb-3" alt="Cloud Infrastructure Project">
+                    <h5>Project Overview</h5>
+                    <p>Created a scalable cloud infrastructure on AWS using Infrastructure as Code principles with automated monitoring and alerting, enabling rapid scaling during peak traffic periods.</p>
+                    <h5>Technologies Used</h5>
+                    <p>
+                        <span class="badge bg-primary">AWS</span>
+                        <span class="badge bg-primary">Terraform</span>
+                        <span class="badge bg-primary">Prometheus</span>
+                        <span class="badge bg-primary">Grafana</span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="https://github.com/" target="_blank" class="btn btn-primary">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="project3Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Comprehensive Monitoring System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/project3.jpg" class="img-fluid mb-3" alt="Monitoring System Project">
+                    <h5>Project Overview</h5>
+                    <p>Implemented a robust monitoring and alerting system using Prometheus and Grafana for a high-traffic e-commerce platform, enabling proactive issue detection and resolution.</p>
+                    <h5>Technologies Used</h5>
+                    <p>
+                        <span class="badge bg-primary">Prometheus</span>
+                        <span class="badge bg-primary">Grafana</span>
+                        <span class="badge bg-primary">Alertmanager</span>
+                        <span class="badge bg-primary">Kubernetes</span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="https://github.com/" target="_blank" class="btn btn-primary">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Resume</h2>
+                    <hr class="divider">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="mb-4">Download my resume to learn more about my experience, education, and skills.</p>
+                    <a href="assets/resume.pdf" class="btn btn-primary btn-lg" download>
+                        <i class="bi bi-download me-2"></i> Download Resume
+                    </a>
+                    <button class="btn btn-outline-primary btn-lg ms-3" data-bs-toggle="modal" data-bs-target="#resumeModal">
+                        <i class="bi bi-eye me-2"></i> Preview Resume
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Modal -->
+    <div class="modal fade" id="resumeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resume Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-1x1">
+                        <iframe src="assets/resume.pdf" title="Resume Preview"></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="assets/resume.pdf" class="btn btn-primary" download>Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5" role="region" aria-labelledby="contact-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 id="contact-heading" class="section-heading">Contact Me</h2>
+                    <hr class="divider" aria-hidden="true">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" class="contact-form" aria-labelledby="contact-heading" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3 form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <div class="input-wrapper">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required aria-required="true" aria-describedby="name-error">
+                                    <div class="input-focus-effect" aria-hidden="true"></div>
+                                    <div id="name-error" class="error-message" aria-live="polite"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3 form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <div class="input-wrapper">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required aria-required="true" aria-describedby="email-error">
+                                    <div class="input-focus-effect" aria-hidden="true"></div>
+                                    <div id="email-error" class="error-message" aria-live="polite"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <div class="input-wrapper">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject" required aria-required="true" aria-describedby="subject-error">
+                                <div class="input-focus-effect" aria-hidden="true"></div>
+                                <div id="subject-error" class="error-message" aria-live="polite"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <div class="input-wrapper">
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required aria-required="true" aria-describedby="message-error"></textarea>
+                                <div class="input-focus-effect" aria-hidden="true"></div>
+                                <div id="message-error" class="error-message" aria-live="polite"></div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg submit-btn">
+                                <span class="btn-text"><i class="bi bi-send me-2" aria-hidden="true"></i> Send Message</span>
+                                <span class="btn-loader d-none"><i class="bi bi-arrow-repeat spin" aria-hidden="true"></i><span class="visually-hidden">Sending...</span></span>
+                            </button>
+                        </div>
+                    </form>
+                    <div id="formSuccess" class="alert alert-success mt-4 d-none animate__animated" role="status" aria-live="assertive">
+                        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i> Thank you for your message! I'll get back to you as soon as possible.
+                    </div>
+                    <div id="formError" class="alert alert-danger mt-4 d-none animate__animated" role="alert" aria-live="assertive">
+                        <i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i> Error sending message. Please try again later.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <p class="mb-0">&copy; 2025 Illia Bilous. All rights reserved.</p>
+                </div>
+                <div class="col-lg-6 text-center text-lg-end">
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/illia-bilous-32548a212" target="_blank" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/ilya776" target="_blank" class="text-white me-3"><i class="bi bi-github"></i></a>
+                        <a href="mailto:illiaa.bilous@gmail.com" class="text-white"><i class="bi bi-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="btn btn-primary rounded-circle">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Particles.js -->
+    <script src="assets/js/particles.min.js"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
