@@ -542,11 +542,61 @@ a:hover {
     transform: scale(1.1);
 }
 
+/* About Text Animation Styles */
+.about-text-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-text-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .about-text {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 1rem;
     color: var(--text-color);
+}
+
+/* Initial state for animation - will be overridden by JS */
+.about-text-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Clip path animation styles */
+.about-text-wrapper.mask-reveal {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .about-text-wrapper {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: none !important;
+    }
+}
+
+/* Social icons animation for About section */
+#about .social-icons {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    #about .social-icons {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
 
 .social-icons a {

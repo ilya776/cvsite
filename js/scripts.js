@@ -25,6 +25,7 @@ $(document).ready(function() {
     initProgressBars();
     initTypingEffect();
     initScrollAnimations();
+    initAboutTextAnimation();
     // REMOVED: initCustomCursor() - Custom cursor has been deprecated
 
     /**
@@ -642,6 +643,78 @@ $(document).ready(function() {
      */
 
     /**
+     * Initialize sophisticated animation for the About Me section text
+     * Uses GSAP and ScrollTrigger for advanced animation effects
+     */
+    function initAboutTextAnimation() {
+        // Check if the about section exists
+        if (!$('#aboutTextContainer').length) return;
+
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReducedMotion) {
+            // If user prefers reduced motion, make all text visible without animation
+            $('.about-text-wrapper').css({
+                'opacity': 1,
+                'transform': 'none',
+                'clip-path': 'none'
+            });
+            return;
+        }
+
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Get all text wrapper elements
+        const textWrappers = $('.about-text-wrapper');
+
+        // Create a GSAP timeline
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#aboutTextContainer',
+                start: 'top 70%', // Start animation when the top of the container is 70% from the top of the viewport
+                toggleActions: 'play none none none', // Play animation once when entering the trigger
+                markers: false // Set to true for debugging
+            }
+        });
+
+        // Add mask reveal effect to each text wrapper
+        textWrappers.each(function(index) {
+            const wrapper = $(this);
+
+            // Set initial state with clip-path
+            gsap.set(wrapper, {
+                clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)',
+                opacity: 0,
+                y: 20
+            });
+
+            // Add to timeline with staggered delay
+            tl.to(wrapper, {
+                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: 'power3.out',
+                delay: 0.1 * index, // Staggered delay based on index
+                onComplete: function() {
+                    // Remove clip-path after animation to prevent rendering issues
+                    gsap.set(wrapper, { clearProps: 'clipPath' });
+                }
+            }, index * 0.1); // Staggered start time
+        });
+
+        // Add a subtle fade-in for the social icons after all text is revealed
+        tl.to('.social-icons', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out'
+        }, '>-0.3'); // Start slightly before the last text animation finishes
+    }
+
+    /**
      * Initialize scroll animations for elements
      */
     function initScrollAnimations() {
@@ -685,7 +758,10 @@ $(document).ready(function() {
             sectionObserver.observe(this);
 
             // Find elements within the section to animate
-            $section.find('.section-heading, .divider, .skill-card, .project-card, .about-text, .profile-img-container, .social-icons, .contact-form').each(function(elementIndex) {
+            // Exclude about-text and social-icons in the about section as they're handled by custom animation
+            $section.find('.section-heading, .divider, .skill-card, .project-card, .profile-img-container, .contact-form')
+                   .not('#about .about-text, #about .about-text-wrapper, #about .social-icons')
+                   .each(function(elementIndex) {
                 const $element = $(this);
                 let animationClass = 'animate__fadeInUp'; // Default animation
 

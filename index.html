@@ -79,18 +79,50 @@
                 <div class="col-lg-8">
                     <h3>Illia Bilous</h3>
                     <h4 class="text-white mb-3">DevOps Engineer</h4>
-                    <p class="about-text">
-                        I specialize in designing, implementing, and maintaining CI/CD pipelines using GitLab CI and Jenkins for multiple client projects. 
-                        My expertise includes managing containerized applications using Docker and Kubernetes, including writing custom Helm charts and configuring Ingress Controllers.
-                    </p>
-                    <p class="about-text">
-                        I have extensive experience provisioning and supporting cloud infrastructure on AWS (EC2, EKS, RDS, S3) and DigitalOcean, 
-                        as well as integrating Vault for secure secret management within deployment pipelines and Kubernetes workloads.
-                    </p>
+                    <div class="about-text-container" id="aboutTextContainer">
+                        <div class="about-text-wrapper">
+                            <p class="about-text">
+                                I'm a DevOps Engineer with over two years of hands-on experience designing, building, and maintaining cloud-native infrastructure and automation pipelines. My passion lies in creating reliable, scalable systems that empower development teams to deliver high-quality software rapidly and consistently. I thrive on solving complex problems, streamlining workflows, and finding creative ways to bridge the gap between development and operations.
+                            </p>
+                        </div>
+                        <div class="about-text-wrapper">
+                            <p class="about-text">
+                                Over the course of my career, I have:
+                            </p>
+                        </div>
+                        <ul class="about-text">
+                            <div class="about-text-wrapper">
+                                <li>Engineered robust AWS and GCP environments: I've provisioned and managed EC2 instances, S3 buckets, RDS databases, and other core services to ensure high availability and cost-efficiency.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Embraced Infrastructure as Code with Terraform: I've authored modular Terraform configurations to automate the provisioning of networks, compute resources, and storage, enabling repeatable deployments across staging and production.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Led containerization efforts using Docker and Kubernetes: I've built Docker images, designed and deployed Kubernetes clusters (including Pods, Deployments, Services, ConfigMaps, Secrets, and Ingress controllers), and used Helm charts to package and distribute complex applications. By configuring Horizontal Pod Autoscalers (HPA) and resource requests/limits, I ensured that workloads could scale dynamically in response to demand.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Built and maintained CI/CD pipelines: I've implemented end-to-end pipelines with Jenkins and GitLab CI, integrating unit tests, linting, security scans, and automated deployments. These pipelines have reduced manual steps, minimized errors, and accelerated release cycles.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Monitored systems with Prometheus and Grafana: I've set up Prometheus exporters, defined custom metrics, and created Grafana dashboards to visualize system health, application performance, and resource utilization. Proactive alerts and detailed instrumentation have helped teams detect and resolve issues before they impact users.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Managed databases and networking: I've administered MySQL and PostgreSQL instances—tuning queries, optimizing indexes, and performing backups to ensure data integrity. I'm also well-versed in Linux networking fundamentals, having configured VPCs, subnets, security groups, and load balancers to maintain secure, performant architectures.</li>
+                            </div>
+                            <div class="about-text-wrapper">
+                                <li>Automated tasks with Python and Bash: I've written scripts to automate routine maintenance, configuration drift checks, log aggregation, and other operational tasks—freeing up time for more strategic work.</li>
+                            </div>
+                        </ul>
+                        <div class="about-text-wrapper">
+                            <p class="about-text">
+                                I thrive in collaborative environments where cross-functional teams come together to build and operate complex systems. When I'm not optimizing infrastructure, I enjoy exploring new DevOps tools, contributing to open-source projects, and sharing knowledge with the community. My ultimate goal is to drive continuous improvement in software delivery and operational excellence, ensuring that every service I work on meets the highest standards of reliability, security, and performance.
+                            </p>
+                        </div>
+                    </div>
                     <div class="social-icons mt-4">
-                        <a href="https://linkedin.com/" target="_blank" class="me-3"><i class="bi bi-linkedin fs-3"></i></a>
-                        <a href="https://github.com/" target="_blank" class="me-3"><i class="bi bi-github fs-3"></i></a>
-                        <a href="mailto:contact@example.com" class="me-3"><i class="bi bi-envelope fs-3"></i></a>
+                        <a href="https://www.linkedin.com/in/illia-bilous-32548a212" target="_blank" class="me-3"><i class="bi bi-linkedin fs-3"></i></a>
+                        <a href="https://github.com/ilya776" target="_blank" class="me-3"><i class="bi bi-github fs-3"></i></a>
+                        <a href="mailto:illiaa.bilous@gmail.com" class="me-3"><i class="bi bi-envelope fs-3"></i></a>
                     </div>
                 </div>
             </div>
@@ -727,13 +759,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-start">
-                    <p class="mb-0">&copy; 2023 Illia Bilous. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2025 Illia Bilous. All rights reserved.</p>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end">
                     <div class="social-icons">
-                        <a href="https://linkedin.com/" target="_blank" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
-                        <a href="https://github.com/" target="_blank" class="text-white me-3"><i class="bi bi-github"></i></a>
-                        <a href="mailto:contact@example.com" class="text-white"><i class="bi bi-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/illia-bilous-32548a212" target="_blank" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/ilya776" target="_blank" class="text-white me-3"><i class="bi bi-github"></i></a>
+                        <a href="mailto:illiaa.bilous@gmail.com" class="text-white"><i class="bi bi-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -751,6 +783,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Particles.js -->
     <script src="assets/js/particles.min.js"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- Custom JS -->
     <script src="js/scripts.js"></script>
 </body>
