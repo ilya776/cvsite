@@ -203,6 +203,50 @@ $(document).ready(function() {
     }
 
     /**
+     * Send message to Telegram bot
+     * @param {string} name - Sender's name
+     * @param {string} email - Sender's email
+     * @param {string} subject - Message subject
+     * @param {string} message - Message content
+     * @returns {Promise} - Promise that resolves when the message is sent
+     */
+    function sendToTelegramBot(name, email, subject, message) {
+        return new Promise((resolve, reject) => {
+            // Replace with your actual bot token and chat ID
+            const botToken = '7292760537:AAGGaaCVFxFj85SESAwqSK4Nci5pcQ65iGo';
+            const chatId = '671586757';
+
+            // Format the message
+            const formattedMessage = `
+📨 New Contact Form Message:
+👤 Name: ${name}
+📧 Email: ${email}
+📝 Subject: ${subject}
+💬 Message: ${message}
+            `.trim();
+
+            // Send the message to Telegram
+            $.ajax({
+                url: `https://api.telegram.org/bot${botToken}/sendMessage`,
+                method: 'POST',
+                data: {
+                    chat_id: chatId,
+                    text: formattedMessage,
+                    parse_mode: 'HTML'
+                },
+                success: function(response) {
+                    console.log('Message sent to Telegram successfully:', response);
+                    resolve(response);
+                },
+                error: function(error) {
+                    console.error('Error sending message to Telegram:', error);
+                    reject(error);
+                }
+            });
+        });
+    }
+
+    /**
      * Initialize form validation and submission with enhanced animations
      */
     function initFormValidation() {
@@ -286,29 +330,45 @@ $(document).ready(function() {
                 $btnLoader.removeClass('d-none');
                 $submitBtn.prop('disabled', true).css('cursor', 'wait');
 
-                // Simulate server request with timeout
-                setTimeout(function() {
-                    // In a real application, you would send the form data to a server here
-                    // For this demo, we'll just show a success message
+                // Send form data to Telegram bot
+                sendToTelegramBot($name.val(), $email.val(), $subject.val(), $message.val())
+                    .then(function(response) {
+                        // Hide loading spinner
+                        $btnLoader.addClass('d-none');
+                        $btnText.removeClass('d-none');
+                        $submitBtn.prop('disabled', false).css('cursor', 'pointer');
 
-                    // Hide loading spinner
-                    $btnLoader.addClass('d-none');
-                    $btnText.removeClass('d-none');
-                    $submitBtn.prop('disabled', false).css('cursor', 'pointer');
+                        // Reset form
+                        $contactForm[0].reset();
 
-                    // Reset form
-                    $contactForm[0].reset();
+                        // Show success message with animation
+                        $formSuccess.removeClass('d-none').addClass('animate__animated animate__fadeIn');
 
-                    // Show success message with animation
-                    $formSuccess.removeClass('d-none').addClass('animate__animated animate__fadeIn');
+                        // Hide success message after 5 seconds with fade out animation
+                        setTimeout(function() {
+                            $formSuccess.fadeOut(500, function() {
+                                $(this).addClass('d-none').removeClass('animate__animated animate__fadeIn').css('display', '');
+                            });
+                        }, 5000);
+                    })
+                    .catch(function(error) {
+                        console.error('Error sending message to Telegram:', error);
 
-                    // Hide success message after 5 seconds with fade out animation
-                    setTimeout(function() {
-                        $formSuccess.fadeOut(500, function() {
-                            $(this).addClass('d-none').removeClass('animate__animated animate__fadeIn').css('display', '');
-                        });
-                    }, 5000);
-                }, 1500); // Simulate 1.5s server delay
+                        // Hide loading spinner
+                        $btnLoader.addClass('d-none');
+                        $btnText.removeClass('d-none');
+                        $submitBtn.prop('disabled', false).css('cursor', 'pointer');
+
+                        // Show error message
+                        $formError.removeClass('d-none').addClass('animate__animated animate__fadeIn');
+
+                        // Hide error message after 5 seconds
+                        setTimeout(function() {
+                            $formError.fadeOut(500, function() {
+                                $(this).addClass('d-none').removeClass('animate__animated animate__fadeIn').css('display', '');
+                            });
+                        }, 5000);
+                    });
             } else {
                 // Focus on the first invalid field
                 $('.form-control.is-invalid').first().focus();
