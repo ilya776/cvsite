@@ -15,37 +15,29 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
     <!-- Navigation -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top" role="navigation" aria-label="Main navigation">
+        <div id="scroll-progress" aria-hidden="true"></div>
         <div class="container">
             <a class="navbar-brand" href="#">Illia Bilous</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#resume">Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <button id="theme-toggle" class="btn btn-sm">
-                            <i class="bi bi-moon-fill"></i>
+                <ul class="navbar-nav ms-auto" role="menubar">
+                    <li class="nav-item" role="none"><a class="nav-link" href="#home" role="menuitem" aria-label="Home section">Home</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#about" role="menuitem" aria-label="About section">About</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#skills" role="menuitem" aria-label="Skills section">Skills</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#projects" role="menuitem" aria-label="Projects section">Projects</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#resume" role="menuitem" aria-label="Resume section">Resume</a></li>
+                    <li class="nav-item" role="none"><a class="nav-link" href="#contact" role="menuitem" aria-label="Contact section">Contact</a></li>
+                    <li class="nav-item" role="none">
+                        <button id="theme-toggle" class="btn btn-sm" aria-label="Toggle dark/light theme" role="menuitem">
+                            <i class="bi bi-moon-fill" aria-hidden="true"></i>
                         </button>
                     </li>
                 </ul>
@@ -54,17 +46,18 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="hero-section">
-        <div id="particles-js" class="particles-container"></div>
+    <section id="home" class="hero-section" role="region" aria-labelledby="hero-title" tabindex="-1">
+        <div id="particles-js" class="particles-container" aria-hidden="true"></div>
         <div class="container h-100 position-relative">
             <div class="row h-100 align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="animated-title">Illia Bilous</h1>
-                    <h2 class="mb-4">DevOps Engineer</h2>
-                    <p class="lead mb-5">Building reliable infrastructure and streamlining development workflows</p>
-                    <a href="#about" class="btn btn-primary btn-lg scroll-btn">
-                        Learn More <i class="bi bi-arrow-down"></i>
+                <div id="main-content" class="col-lg-8 mx-auto text-center">
+                    <h1 id="hero-title" class="hero-title animate__animated animate__fadeInDown">Illia Bilous</h1>
+                    <h2 class="mb-4 hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">DevOps Engineer</h2>
+                    <p class="lead mb-5 hero-text animate__animated animate__fadeInUp animate__delay-2s">Building reliable infrastructure and streamlining development workflows</p>
+                    <a href="#about" class="btn btn-primary btn-lg scroll-btn animate__animated animate__fadeInUp animate__delay-3s">
+                        Learn More <i class="bi bi-arrow-down" aria-hidden="true"></i>
                     </a>
+                    <!-- REMOVED: Scroll down indicator as per requirements -->
                 </div>
             </div>
         </div>
@@ -95,18 +88,6 @@
                     <p class="about-text">
                         I have extensive experience provisioning and supporting cloud infrastructure on AWS (EC2, EKS, RDS, S3) and DigitalOcean, 
                         as well as integrating Vault for secure secret management within deployment pipelines and Kubernetes workloads.
-                    </p>
-                    <p class="about-text">
-                        My responsibilities include setting up QA and staging environments, automating deployment processes, and troubleshooting deployment issues. 
-                        I monitor applications using Prometheus and Grafana, configuring alerting and dashboards for production systems.
-                    </p>
-                    <p class="about-text">
-                        I work with MySQL and Redis, including backup strategies, performance tuning, and recovery operations. 
-                        I support application lifecycle operations such as rolling updates, rollbacks, versioning, and release coordination.
-                    </p>
-                    <p class="about-text">
-                        I collaborate with developers and QA to improve release workflows and streamline feedback loops, 
-                        and write Bash scripts to automate repetitive DevOps tasks, provisioning steps, and system checks.
                     </p>
                     <div class="social-icons mt-4">
                         <a href="https://linkedin.com/" target="_blank" class="me-3"><i class="bi bi-linkedin fs-3"></i></a>
@@ -149,11 +130,14 @@
                         <div class="card-body text-center">
                             <i class="devicon-gitlab-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">GitLab CI</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="GitLab CI skill level: 95 percent">
                                 <div class="skill-percentage">95%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">GitLab CI: 95%</div>
                             </div>
                         </div>
                     </div>
@@ -163,11 +147,14 @@
                         <div class="card-body text-center">
                             <i class="devicon-jenkins-plain fs-1 mb-3" style="color: #D33833;"></i>
                             <h4 class="card-title">Jenkins</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="Jenkins skill level: 90 percent">
                                 <div class="skill-percentage">90%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Jenkins: 90%</div>
                             </div>
                         </div>
                     </div>
@@ -177,26 +164,33 @@
                         <div class="card-body text-center">
                             <i class="devicon-github-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">GitHub Actions</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="GitHub Actions skill level: 85 percent">
                                 <div class="skill-percentage">85%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">GitHub Actions: 85%</div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Container Skills -->
                 <div class="col-md-4 mb-4 skill-item" data-category="container">
                     <div class="card h-100 skill-card">
                         <div class="card-body text-center">
                             <i class="devicon-docker-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">Docker</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="Docker skill level: 95 percent">
                                 <div class="skill-percentage">95%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Docker: 95%</div>
                             </div>
                         </div>
                     </div>
@@ -206,43 +200,33 @@
                         <div class="card-body text-center">
                             <i class="devicon-kubernetes-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">Kubernetes</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="Kubernetes skill level: 90 percent">
                                 <div class="skill-percentage">90%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Kubernetes: 90%</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4 skill-item" data-category="container">
-                    <div class="card h-100 skill-card">
-                        <div class="card-body text-center">
-                            <svg class="helm-logo fs-1 mb-3" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-                                <path d="M32 0C14.4 0 0 14.4 0 32s14.4 32 32 32 32-14.4 32-32S49.6 0 32 0zm0 4.8c15.2 0 27.2 12 27.2 27.2S47.2 59.2 32 59.2 4.8 47.2 4.8 32 16.8 4.8 32 4.8z" fill="#0F1689"/>
-                                <path d="M32 9.6c-12.8 0-22.4 9.6-22.4 22.4S19.2 54.4 32 54.4 54.4 44.8 54.4 32 44.8 9.6 32 9.6zm-9.6 11.2c1.6 0 3.2 1.6 3.2 3.2s-1.6 3.2-3.2 3.2-3.2-1.6-3.2-3.2 1.6-3.2 3.2-3.2zm19.2 0c1.6 0 3.2 1.6 3.2 3.2s-1.6 3.2-3.2 3.2-3.2-1.6-3.2-3.2 1.6-3.2 3.2-3.2zM25.6 32c0-3.2 3.2-6.4 6.4-6.4s6.4 3.2 6.4 6.4-3.2 6.4-6.4 6.4-6.4-3.2-6.4-6.4zm-3.2 9.6c1.6 0 3.2 1.6 3.2 3.2s-1.6 3.2-3.2 3.2-3.2-1.6-3.2-3.2 1.6-3.2 3.2-3.2zm19.2 0c1.6 0 3.2 1.6 3.2 3.2s-1.6 3.2-3.2 3.2-3.2-1.6-3.2-3.2 1.6-3.2 3.2-3.2z" fill="#0F1689"/>
-                            </svg>
-                            <h4 class="card-title">Helm</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">85%</div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- Cloud Skills -->
                 <div class="col-md-4 mb-4 skill-item" data-category="cloud">
                     <div class="card h-100 skill-card">
                         <div class="card-body text-center">
                             <i class="devicon-amazonwebservices-plain-wordmark colored fs-1 mb-3"></i>
                             <h4 class="card-title">AWS</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="AWS skill level: 90 percent">
                                 <div class="skill-percentage">90%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">AWS: 90%</div>
                             </div>
                         </div>
                     </div>
@@ -250,44 +234,35 @@
                 <div class="col-md-4 mb-4 skill-item" data-category="cloud">
                     <div class="card h-100 skill-card">
                         <div class="card-body text-center">
-                            <i class="devicon-digitalocean-plain colored fs-1 mb-3"></i>
-                            <h4 class="card-title">DigitalOcean</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">85%</div>
+                            <i class="devicon-azure-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Azure</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Azure skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Azure: 70%</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4 skill-item" data-category="cloud">
-                    <div class="card h-100 skill-card">
-                        <div class="card-body text-center">
-                            <i class="devicon-googlecloud-plain colored fs-1 mb-3"></i>
-                            <h4 class="card-title">GCP</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">80%</div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- Monitoring Skills -->
                 <div class="col-md-4 mb-4 skill-item" data-category="monitoring">
                     <div class="card h-100 skill-card">
                         <div class="card-body text-center">
-                            <svg class="prometheus-logo fs-1 mb-3" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 256 257">
-                                <path fill="#E6522C" d="M128.001.667C57.311.667 0 57.971 0 128.664c0 70.69 57.311 127.998 128.001 127.998S256 199.354 256 128.664C256 57.97 198.691.667 128.001.667zm0 239.56c-20.112 0-36.419-13.435-36.419-30.004h72.838c0 16.566-16.306 30.004-36.419 30.004zm60.153-39.016H67.842V178.89h120.312v22.321zm-.599-33.468H68.338c-.401-.73-.876-1.482-1.389-2.254c-9.182-13.873-11.104-38.571-11.104-38.571c0-1.26.094-2.494.23-3.705c2.349-18.931 13.913-33.476 29.332-40.005c.452-.19.853-.378 1.299-.555c8.067-3.187 17.106-5.189 26.645-5.189c1.07 0 2.097.046 3.142.092c18.659.967 35.436 10.263 45.693 24.909c8.032 11.459 12.571 25.649 12.571 40.927c0 1.539-.097 3.084-.231 4.598c-.95 10.852-3.872 21.471-8.416 28.17c-.385.545-.779 1.082-1.162 1.583z"/>
-                            </svg>
+                            <i class="bi bi-graph-up fs-1 mb-3" style="color: #E6522C;"></i>
                             <h4 class="card-title">Prometheus</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="Prometheus skill level: 85 percent">
                                 <div class="skill-percentage">85%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Prometheus: 85%</div>
                             </div>
                         </div>
                     </div>
@@ -295,15 +270,16 @@
                 <div class="col-md-4 mb-4 skill-item" data-category="monitoring">
                     <div class="card h-100 skill-card">
                         <div class="card-body text-center">
-                            <svg class="grafana-logo fs-1 mb-3" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 256 256">
-                                <path fill="#F05A28" d="M128 0C57.308 0 0 57.307 0 128s57.308 128 128 128c70.693 0 128-57.307 128-128S198.693 0 128 0zm-1.692 51.038c4.762 0 8.616 3.855 8.616 8.615c0 4.761-3.854 8.615-8.616 8.615c-4.76 0-8.615-3.854-8.615-8.615c0-4.76 3.854-8.615 8.615-8.615zm-40.115 13.077c4.546 1.69 6.87 6.744 5.183 11.293c-1.69 4.546-6.744 6.87-11.293 5.183c-4.546-1.69-6.87-6.744-5.183-11.293c1.69-4.546 6.744-6.87 11.293-5.183zm89.077 2.692c3.21 3.634 2.866 9.183-.77 12.393c-3.634 3.21-9.183 2.866-12.393-.77c-3.21-3.634-2.866-9.183.77-12.393c3.634-3.21 9.183-2.866 12.393.77zm-45.385 5.077c27.72 0 50.27 22.55 50.27 50.27c0 27.718-22.55 50.268-50.27 50.268c-27.718 0-50.269-22.55-50.269-50.269c0-27.72 22.55-50.269 50.27-50.269zm-65.154 21.846c4.33 2.154 6.096 7.385 3.942 11.712c-2.154 4.33-7.385 6.096-11.712 3.942c-4.33-2.154-6.096-7.385-3.942-11.712c2.154-4.33 7.385-6.096 11.712-3.942zm138.27 4.385c1.571 4.594-.886 9.598-5.48 11.17c-4.595 1.57-9.599-.887-11.17-5.481c-1.57-4.595.887-9.599 5.481-11.17c4.595-1.57 9.599.887 11.17 5.481zm-135.385 40.23c0 4.762-3.855 8.616-8.616 8.616c-4.76 0-8.615-3.854-8.615-8.615c0-4.76 3.854-8.615 8.615-8.615c4.761 0 8.616 3.854 8.616 8.615zm140.308 8.616c4.761 0 8.615 3.854 8.615 8.615c0 4.76-3.854 8.615-8.615 8.615c-4.76 0-8.615-3.854-8.615-8.615c0-4.76 3.854-8.615 8.615-8.615zm-132.923 30.23c4.33-2.153 9.558-.387 11.712 3.943c2.154 4.33.387 9.558-3.942 11.712c-4.33 2.154-9.558.387-11.712-3.942c-2.154-4.33-.387-9.558 3.942-11.712zm113.846 5.385c3.634-3.21 9.183-2.866 12.393.77c3.21 3.634 2.866 9.183-.77 12.393c-3.634 3.21-9.183 2.866-12.393-.77c-3.21-3.634-2.866-9.183.77-12.393zm-76.923 8.23c4.546-1.69 9.602.637 11.293 5.183c1.69 4.546-.637 9.602-5.183 11.293c-4.546 1.69-9.602-.637-11.293-5.183c-1.69-4.546.637-9.602 5.183-11.293z"/>
-                            </svg>
+                            <i class="devicon-grafana-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">Grafana</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">80%</div>
+                            <div class="skill-level" tabindex="0" aria-label="Grafana skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Grafana: 70%</div>
                             </div>
                         </div>
                     </div>
@@ -311,58 +287,35 @@
                 <div class="col-md-4 mb-4 skill-item" data-category="monitoring">
                     <div class="card h-100 skill-card">
                         <div class="card-body text-center">
-                            <svg class="loki-logo fs-1 mb-3" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-                                <path fill="#F5A800" d="M29.8 14.1c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2"/>
-                                <path fill="#F5A800" d="M42.7 46.7c-1.5 1.5-3.5 2.3-5.6 2.3-2.1 0-4.1-.8-5.6-2.3-1.5-1.5-2.3-3.5-2.3-5.6 0-2.1.8-4.1 2.3-5.6 1.5-1.5 3.5-2.3 5.6-2.3 2.1 0 4.1.8 5.6 2.3 1.5 1.5 2.3 3.5 2.3 5.6 0 2.1-.8 4.1-2.3 5.6m-5.6-16.4c-3 0-5.8 1.2-7.9 3.3-2.1 2.1-3.3 4.9-3.3 7.9 0 3 1.2 5.8 3.3 7.9 2.1 2.1 4.9 3.3 7.9 3.3 3 0 5.8-1.2 7.9-3.3 2.1-2.1 3.3-4.9 3.3-7.9 0-3-1.2-5.8-3.3-7.9-2.1-2.1-4.9-3.3-7.9-3.3"/>
-                                <path fill="#F5A800" d="M38.2 14.1c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2"/>
-                                <path fill="#F5A800" d="M32 0C14.3 0 0 14.3 0 32s14.3 32 32 32 32-14.3 32-32S49.7 0 32 0m0 60.3C16.3 60.3 3.7 47.7 3.7 32S16.3 3.7 32 3.7 60.3 16.3 60.3 32 47.7 60.3 32 60.3"/>
-                            </svg>
+                            <i class="bi bi-bar-chart-line fs-1 mb-3"></i>
                             <h4 class="card-title">Loki</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">75%</div>
+                            <div class="skill-level" tabindex="0" aria-label="Loki skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Loki: 70%</div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Database Skills -->
                 <div class="col-md-4 mb-4 skill-item" data-category="database">
                     <div class="card h-100 skill-card">
                         <div class="card-body text-center">
                             <i class="devicon-mysql-plain-wordmark colored fs-1 mb-3"></i>
                             <h4 class="card-title">MySQL</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="MySQL skill level: 85 percent">
                                 <div class="skill-percentage">85%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4 skill-item" data-category="database">
-                    <div class="card h-100 skill-card">
-                        <div class="card-body text-center">
-                            <svg class="redis-logo fs-1 mb-3" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 256 220">
-                                <path fill="#A41E11" d="M245.97 168.943c-13.662 7.121-84.434 36.22-99.501 44.075c-15.067 7.856-23.437 7.78-35.34 2.09c-11.902-5.69-87.216-36.112-100.783-42.597C3.566 169.271 0 166.535 0 163.951v-25.876s98.05-21.345 113.879-27.024c15.828-5.679 21.32-5.884 34.79-.95c13.472 4.936 94.018 19.468 107.331 24.344l-.006 25.51c.002 2.558-3.07 5.364-10.024 8.988z"/>
-                                <path fill="#D82C20" d="M245.965 143.22c-13.661 7.118-84.431 36.218-99.498 44.072c-15.066 7.857-23.436 7.78-35.338 2.09c-11.903-5.686-87.214-36.113-100.78-42.594c-13.566-6.485-13.85-10.948-.524-16.166c13.326-5.22 88.224-34.605 104.055-40.284c15.828-5.677 21.319-5.884 34.789-.948c13.471 4.934 83.819 32.935 97.13 37.81c13.316 4.881 13.827 8.9.166 16.02z"/>
-                                <path fill="#A41E11" d="M245.97 127.074c-13.662 7.122-84.434 36.22-99.501 44.078c-15.067 7.853-23.437 7.777-35.34 2.087c-11.903-5.687-87.216-36.112-100.783-42.597C3.566 127.402 0 124.67 0 122.085V96.206s98.05-21.344 113.879-27.023c15.828-5.679 21.32-5.885 34.79-.95c13.472 4.935 94.018 19.468 107.331 24.344l-.006 25.51c.002 2.56-3.07 5.365-10.024 8.987z"/>
-                                <path fill="#D82C20" d="M245.965 101.351c-13.661 7.12-84.431 36.218-99.498 44.075c-15.066 7.854-23.436 7.777-35.338 2.087c-11.903-5.686-87.214-36.112-100.78-42.594c-13.566-6.483-13.85-10.947-.524-16.167C23.151 83.535 98.05 54.148 113.88 48.47c15.828-5.678 21.319-5.884 34.789-.949c13.471 4.934 83.819 32.933 97.13 37.81c13.316 4.88 13.827 8.9.166 16.02z"/>
-                                <path fill="#A41E11" d="M245.97 83.653c-13.662 7.12-84.434 36.22-99.501 44.078c-15.067 7.854-23.437 7.777-35.34 2.087c-11.903-5.687-87.216-36.113-100.783-42.595C3.566 83.98 0 81.247 0 78.665v-25.88s98.05-21.343 113.879-27.021c15.828-5.68 21.32-5.884 34.79-.95c13.472 4.934 94.018 19.466 107.331 24.344l-.006 25.508c.002 2.561-3.07 5.366-10.024 8.987z"/>
-                                <path fill="#D82C20" d="M245.965 57.93c-13.661 7.12-84.431 36.22-99.498 44.074c-15.066 7.854-23.436 7.777-35.338 2.09c-11.903-5.69-87.214-36.114-100.78-42.595c-13.566-6.486-13.85-10.948-.524-16.167c13.326-5.22 88.224-34.605 104.055-40.283c15.828-5.68 21.319-5.884 34.789-.95c13.471 4.935 83.819 32.935 97.13 37.81c13.316 4.88 13.827 8.9.166 16.02z"/>
-                                <path fill="#FFF" d="M159.283 32.757l-22.01 2.285l-4.927 11.856l-7.958-13.23l-25.415-2.284l18.964-6.839l-5.69-10.498l17.755 6.944l16.738-5.48l-4.524 10.855l17.067 6.391z"/>
-                                <path fill="#FFF" d="M131.032 90.275c-12.525 0-22.682-2.154-22.682-4.817c0-2.662 10.157-4.814 22.682-4.814c12.526 0 22.682 2.152 22.682 4.814c0 2.663-10.156 4.817-22.682 4.817m0-12.077c-17.017 0-30.819 3.261-30.819 7.26c0 3.999 13.802 7.258 30.819 7.258c17.017 0 30.82-3.26 30.82-7.258c0-3.999-13.803-7.26-30.82-7.26"/>
-                                <path fill="#7A0C00" d="M173.129 151.73l-45.296 22.235c-.538.264-1.648.264-2.186 0l-45.296-22.235c-.538-.266-.98-.89-.98-1.387v-21.22c0-.498.442-1.122.98-1.387l45.296-22.235c.538-.264 1.648-.264 2.186 0l45.296 22.235c.539.265.98.889.98 1.387v21.22c0 .497-.441 1.121-.98 1.387z"/>
-                                <path fill="#AD2115" d="M127.834 132.977c-14.614 0-26.505-2.412-26.505-5.4c0-2.987 11.89-5.399 26.505-5.399c14.615 0 26.505 2.412 26.505 5.4c0 2.987-11.89 5.399-26.505 5.399z"/>
-                            </svg>
-                            <h4 class="card-title">Redis</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">80%</div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <div class="skill-tooltip">MySQL: 85%</div>
                             </div>
                         </div>
                     </div>
@@ -371,12 +324,32 @@
                     <div class="card h-100 skill-card">
                         <div class="card-body text-center">
                             <i class="devicon-postgresql-plain colored fs-1 mb-3"></i>
-                            <h4 class="card-title">PostgreSQL</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">85%</div>
+                            <h4 class="card-title">Postgres</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Postgres skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Postgres: 70%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 skill-item" data-category="database">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body text-center">
+                            <i class="devicon-redis-plain colored fs-1 mb-3"></i>
+                            <h4 class="card-title">Redis</h4>
+                            <div class="skill-level" tabindex="0" aria-label="Redis skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
+                                <div class="progress">
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-tooltip">Redis: 70%</div>
                             </div>
                         </div>
                     </div>
@@ -388,11 +361,14 @@
                         <div class="card-body text-center">
                             <i class="devicon-linux-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">Linux</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="Linux skill level: 95 percent">
                                 <div class="skill-percentage">95%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Linux: 95%</div>
                             </div>
                         </div>
                     </div>
@@ -404,11 +380,14 @@
                         <div class="card-body text-center">
                             <i class="devicon-bash-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">Bash</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="Bash skill level: 90 percent">
                                 <div class="skill-percentage">90%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Bash: 90%</div>
                             </div>
                         </div>
                     </div>
@@ -418,11 +397,14 @@
                         <div class="card-body text-center">
                             <i class="devicon-python-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">Python</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">85%</div>
+                            <div class="skill-level" tabindex="0" aria-label="Python skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Python: 70%</div>
                             </div>
                         </div>
                     </div>
@@ -434,11 +416,14 @@
                         <div class="card-body text-center">
                             <i class="devicon-terraform-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">Terraform</h4>
-                            <div class="skill-level">
+                            <div class="skill-level" tabindex="0" aria-label="Terraform skill level: 80 percent">
                                 <div class="skill-percentage">80%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Terraform: 80%</div>
                             </div>
                         </div>
                     </div>
@@ -448,11 +433,14 @@
                         <div class="card-body text-center">
                             <i class="devicon-ansible-plain colored fs-1 mb-3"></i>
                             <h4 class="card-title">Ansible</h4>
-                            <div class="skill-level">
-                                <div class="skill-percentage">30%</div>
+                            <div class="skill-level" tabindex="0" aria-label="Ansible skill level: 70 percent">
+                                <div class="skill-percentage">70%</div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="skill-bar__track">
+                                        <div class="skill-bar__fill progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
+                                <div class="skill-tooltip">Ansible: 70%</div>
                             </div>
                         </div>
                     </div>
@@ -546,31 +534,17 @@
     </section>
 
     <!-- Project Modals -->
-    <!-- Project 1 Modal -->
-    <div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="project1Modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="project1ModalLabel">Automated CI/CD Pipeline</h5>
+                    <h5 class="modal-title">Automated CI/CD Pipeline</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <img src="assets/project1.jpg" class="img-fluid mb-3" alt="CI/CD Pipeline Project">
                     <h5>Project Overview</h5>
                     <p>Designed and implemented a fully automated CI/CD pipeline using GitLab CI for a microservices architecture, reducing deployment time by 70% and enabling multiple daily deployments.</p>
-
-                    <h5>Challenges</h5>
-                    <p>The main challenge was integrating multiple microservices with different technology stacks into a unified deployment pipeline while ensuring zero-downtime deployments.</p>
-
-                    <h5>Solutions</h5>
-                    <ul>
-                        <li>Implemented a multi-stage pipeline with parallel execution for faster builds</li>
-                        <li>Created custom Docker images for each microservice to standardize the build environment</li>
-                        <li>Utilized Kubernetes for container orchestration with rolling update strategy</li>
-                        <li>Integrated automated testing at multiple stages of the pipeline</li>
-                        <li>Implemented automatic rollback mechanisms for failed deployments</li>
-                    </ul>
-
                     <h5>Technologies Used</h5>
                     <p>
                         <span class="badge bg-primary">GitLab CI</span>
@@ -578,11 +552,7 @@
                         <span class="badge bg-primary">Kubernetes</span>
                         <span class="badge bg-primary">Helm</span>
                         <span class="badge bg-primary">AWS EKS</span>
-                        <span class="badge bg-primary">Bash</span>
                     </p>
-
-                    <h5>Results</h5>
-                    <p>The implementation resulted in a 70% reduction in deployment time, increased deployment frequency from weekly to daily, and reduced deployment-related incidents by 85%.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -592,43 +562,24 @@
         </div>
     </div>
 
-    <!-- Project 2 Modal -->
-    <div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="project2Modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="project2ModalLabel">Cloud Infrastructure Automation</h5>
+                    <h5 class="modal-title">Cloud Infrastructure Automation</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <img src="assets/project2.jpg" class="img-fluid mb-3" alt="Cloud Infrastructure Project">
                     <h5>Project Overview</h5>
                     <p>Created a scalable cloud infrastructure on AWS using Infrastructure as Code principles with automated monitoring and alerting, enabling rapid scaling during peak traffic periods.</p>
-
-                    <h5>Challenges</h5>
-                    <p>The main challenge was designing an infrastructure that could automatically scale to handle unpredictable traffic spikes while maintaining cost efficiency during low-traffic periods.</p>
-
-                    <h5>Solutions</h5>
-                    <ul>
-                        <li>Implemented infrastructure as code using Terraform for reproducible environments</li>
-                        <li>Created auto-scaling groups for application servers based on CPU and memory metrics</li>
-                        <li>Utilized AWS RDS with read replicas for database scaling</li>
-                        <li>Implemented a comprehensive monitoring system with Prometheus and Grafana</li>
-                        <li>Set up automated alerting for potential issues before they impact users</li>
-                    </ul>
-
                     <h5>Technologies Used</h5>
                     <p>
                         <span class="badge bg-primary">AWS</span>
                         <span class="badge bg-primary">Terraform</span>
                         <span class="badge bg-primary">Prometheus</span>
                         <span class="badge bg-primary">Grafana</span>
-                        <span class="badge bg-primary">CloudWatch</span>
-                        <span class="badge bg-primary">Lambda</span>
                     </p>
-
-                    <h5>Results</h5>
-                    <p>The infrastructure successfully handled a 300% increase in traffic during promotional events with no performance degradation, while reducing overall cloud costs by 25% through optimized resource allocation.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -638,42 +589,24 @@
         </div>
     </div>
 
-    <!-- Project 3 Modal -->
-    <div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="project3Modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="project3ModalLabel">Comprehensive Monitoring System</h5>
+                    <h5 class="modal-title">Comprehensive Monitoring System</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <img src="assets/project3.jpg" class="img-fluid mb-3" alt="Monitoring System Project">
                     <h5>Project Overview</h5>
                     <p>Implemented a robust monitoring and alerting system using Prometheus and Grafana for a high-traffic e-commerce platform, enabling proactive issue detection and resolution.</p>
-
-                    <h5>Challenges</h5>
-                    <p>The main challenge was creating a monitoring system that could provide actionable insights across a complex microservices architecture while avoiding alert fatigue.</p>
-
-                    <h5>Solutions</h5>
-                    <ul>
-                        <li>Deployed Prometheus for metrics collection with custom exporters for application-specific metrics</li>
-                        <li>Created comprehensive Grafana dashboards for different stakeholders (developers, operations, management)</li>
-                        <li>Implemented intelligent alerting with different severity levels and routing</li>
-                        <li>Set up automated remediation for common issues</li>
-                        <li>Created a centralized logging system integrated with the monitoring platform</li>
-                    </ul>
-
                     <h5>Technologies Used</h5>
                     <p>
                         <span class="badge bg-primary">Prometheus</span>
                         <span class="badge bg-primary">Grafana</span>
                         <span class="badge bg-primary">Alertmanager</span>
                         <span class="badge bg-primary">Kubernetes</span>
-                        <span class="badge bg-primary">ELK Stack</span>
                     </p>
-
-                    <h5>Results</h5>
-                    <p>The monitoring system reduced the mean time to detect issues by 80% and the mean time to resolve by 60%, resulting in a 40% reduction in customer-impacting incidents.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -707,11 +640,11 @@
     </section>
 
     <!-- Resume Modal -->
-    <div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="resumeModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="resumeModalLabel">Resume Preview</h5>
+                    <h5 class="modal-title">Resume Preview</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -728,50 +661,63 @@
     </div>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <section id="contact" class="py-5" role="region" aria-labelledby="contact-heading">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Me</h2>
-                    <hr class="divider">
+                    <h2 id="contact-heading" class="section-heading">Contact Me</h2>
+                    <hr class="divider" aria-hidden="true">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form" aria-labelledby="contact-heading" novalidate>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6 mb-3 form-group">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                                <div class="invalid-feedback">Please enter your name.</div>
+                                <div class="input-wrapper">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required aria-required="true" aria-describedby="name-error">
+                                    <div class="input-focus-effect" aria-hidden="true"></div>
+                                    <div id="name-error" class="error-message" aria-live="polite"></div>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6 mb-3 form-group">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                                <div class="input-wrapper">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required aria-required="true" aria-describedby="email-error">
+                                    <div class="input-focus-effect" aria-hidden="true"></div>
+                                    <div id="email-error" class="error-message" aria-live="polite"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 form-group">
                             <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" id="subject" placeholder="Subject" required>
-                            <div class="invalid-feedback">Please enter a subject.</div>
+                            <div class="input-wrapper">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject" required aria-required="true" aria-describedby="subject-error">
+                                <div class="input-focus-effect" aria-hidden="true"></div>
+                                <div id="subject-error" class="error-message" aria-live="polite"></div>
+                            </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 form-group">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
-                            <div class="invalid-feedback">Please enter your message.</div>
+                            <div class="input-wrapper">
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required aria-required="true" aria-describedby="message-error"></textarea>
+                                <div class="input-focus-effect" aria-hidden="true"></div>
+                                <div id="message-error" class="error-message" aria-live="polite"></div>
+                            </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="bi bi-send me-2"></i> Send Message
+                            <button type="submit" class="btn btn-primary btn-lg submit-btn">
+                                <span class="btn-text"><i class="bi bi-send me-2" aria-hidden="true"></i> Send Message</span>
+                                <span class="btn-loader d-none"><i class="bi bi-arrow-repeat spin" aria-hidden="true"></i><span class="visually-hidden">Sending...</span></span>
                             </button>
                         </div>
                     </form>
-                    <div id="formSuccess" class="alert alert-success mt-4 d-none">
-                        Thank you for your message! I'll get back to you as soon as possible.
+                    <div id="formSuccess" class="alert alert-success mt-4 d-none animate__animated" role="status" aria-live="assertive">
+                        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i> Thank you for your message! I'll get back to you as soon as possible.
                     </div>
-                    <div id="formError" class="alert alert-danger mt-4 d-none">
-                        Error sending message. Please try again later.
+                    <div id="formError" class="alert alert-danger mt-4 d-none animate__animated" role="alert" aria-live="assertive">
+                        <i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i> Error sending message. Please try again later.
                     </div>
                 </div>
             </div>
