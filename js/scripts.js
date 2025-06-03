@@ -831,7 +831,7 @@ $(document).ready(function() {
             }
 
             .dynamic-text {
-                color: var(--primary-color);
+                color: white;
                 font-weight: bold;
             }
         `;
