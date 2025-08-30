@@ -827,5 +827,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **GitHub**: [ilya776](https://github.com/ilya776)
 
 ---
-
-© 2025 Illia Bilous. All rights reserved.

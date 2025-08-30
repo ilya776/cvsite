@@ -162,5 +162,3 @@ When adding new animations:
 4. Avoid animations that flash or move too quickly
 
 ---
-
-This style guide is a living document and should be updated as the site evolves.
