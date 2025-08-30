@@ -14,6 +14,32 @@ $(document).ready(function() {
     const $projectItems = $('.project-item');
     const $heroTitle = $('.hero-section h2');
 
+    // Performance optimization utilities
+    const debounce = (func, wait) => {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    };
+
+    const throttle = (func, limit) => {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    };
+
     // Initialize all components
     initSmoothScrolling();
     initTheme();
@@ -26,6 +52,8 @@ $(document).ready(function() {
     initTypingEffect();
     initScrollAnimations();
     initAboutTextAnimation();
+    initLazyLoading();
+    initPageTransitions();
     // REMOVED: initCustomCursor() - Custom cursor has been deprecated
 
     /**
@@ -182,25 +210,116 @@ $(document).ready(function() {
         const $scrollProgress = $('#scroll-progress');
         const $document = $(document);
 
-        $window.on('scroll', function() {
+        // Optimized scroll handler with throttling
+        const handleScroll = throttle(function() {
+            const scrollTop = $window.scrollTop();
+
             // Handle scroll to top button visibility
-            if ($(this).scrollTop() > 300) {
+            if (scrollTop > 300) {
                 $scrollToTop.addClass('visible');
             } else {
                 $scrollToTop.removeClass('visible');
             }
 
             // Update scroll progress indicator
-            const scrollTop = $window.scrollTop();
             const docHeight = $document.height() - $window.height();
             const scrollPercent = (scrollTop / docHeight) * 100;
             $scrollProgress.css('width', scrollPercent + '%');
-        });
+        }, 16); // ~60fps
+
+        $window.on('scroll', handleScroll);
 
         $scrollToTop.on('click', function() {
             $('html, body').animate({ scrollTop: 0 }, 800);
             return false;
         });
+    }
+
+    /**
+     * Initialize lazy loading for images
+     */
+    function initLazyLoading() {
+        // Check if Intersection Observer is supported
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('data-src');
+
+                        if (src) {
+                            // Add skeleton loading class
+                            img.classList.add('skeleton');
+
+                            // Create a new image to preload
+                            const newImg = new Image();
+                            newImg.onload = () => {
+                                img.src = src;
+                                img.classList.remove('skeleton');
+                                img.classList.add('loaded');
+                                img.removeAttribute('data-src');
+                            };
+                            newImg.onerror = () => {
+                                img.classList.remove('skeleton');
+                                img.classList.add('error');
+                            };
+                            newImg.src = src;
+                        }
+
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+
+            // Observe all images with data-src attribute
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback for browsers without Intersection Observer
+            $('img[data-src]').each(function() {
+                const $img = $(this);
+                const src = $img.attr('data-src');
+                if (src) {
+                    $img.attr('src', src).removeAttr('data-src');
+                }
+            });
+        }
+    }
+
+    /**
+     * Initialize page transitions for smooth loading
+     */
+    function initPageTransitions() {
+        // Add page transition class to main sections
+        $('section, .modal').addClass('page-transition');
+
+        // Trigger loaded state after a short delay
+        setTimeout(() => {
+            $('.page-transition').addClass('loaded');
+        }, 100);
+
+        // Add intersection observer for section animations
+        if ('IntersectionObserver' in window) {
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        $(entry.target).addClass('loaded');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                sectionObserver.observe(section);
+            });
+        }
     }
 
     /**
