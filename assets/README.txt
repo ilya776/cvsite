@@ -15,4 +15,4 @@ This directory should contain the following files for the website to display cor
 - All images should be optimized for web to ensure fast loading times
 - Use professional, high-quality images that represent your work
 - The profile picture should be a professional headshot
-- Project images should visually represent the projects they're associated with
+- Project images should represent the projects they're associated with
